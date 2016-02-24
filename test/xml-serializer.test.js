@@ -105,4 +105,18 @@ describe('XML Parser', function() {
       compareXMLToFile(xml,'single-level-with-one-attribute-cdata-wrapped-items',done);
     });
   });
+  describe('Generating a single level object with attributes and value',function(){
+    before(function(){
+      var value = "someValue";
+      var attr = {
+        "id": "abcd"
+      }
+      var option = {};
+      option.value = value;
+      xml = XML('source',null,attr,null,option).toXML(true);  
+      })
+    it('should have a single level object with attributes and value',function(done){
+      compareXMLToFile(xml,'single-level-with-attributes-and-value',done);
+    });
+  });
 });
